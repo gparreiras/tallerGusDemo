@@ -1,0 +1,63 @@
+﻿@page
+@using tallerGusDemo.Models @*namespace*@
+@model CarModel
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+<div class="container" style="margin-top: 21px;">
+    <h3>Add Car</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Make"></label>
+                <input asp-for="Car.Make" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Make"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Model"></label>
+                <input asp-for="Car.Model" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Model"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Year"></label>
+                <input asp-for="Car.Year" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Year"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Doors"></label>
+                <input asp-for="Car.Doors" cl class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Doors"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Color"></label>
+                <input asp-for="Car.Color" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Color"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Price"></label>
+                <input asp-for="Car.Price" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Car.Price"></span>
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" href="/CarList">Cancel</a>
+    </form>
+</div>

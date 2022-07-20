@@ -1,0 +1,48 @@
+﻿@page "{id:int}"
+@using tallerGusDemo.Models
+@model tallerGusDemo.Pages.CarPriceGuessModel
+
+<div class="container" style="margin-top: 21px;">
+    <h3>Guess Car Price?</h3>
+    <hr />
+    <br />
+    <div class="col-md-12 btn btn-primary" style="background-color:lightseagreen; margin-top: 21px; margin-bottom: 33px; @(Model.DisplaySuccess ? "display:block" : "display:none")">
+        GOOD JOB!
+    </div>
+
+
+    <div class="col-md-12 btn btn-primary" style="background-color:indianred; margin-top: 21px; margin-bottom: 33px; @(Model.DisplayError ? "display:block" : "display:none")">
+        Sorry... maybe next time? =(
+    </div>
+    <form method="post">
+        <input asp-for="Car.CarID" type="hidden" />
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Make"></label>
+                <input asp-for="Car.Make" class="form-control" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Model"></label>
+                <input asp-for="Car.Model" class="form-control" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.Year"></label>
+                <input asp-for="Car.Year" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Car.PriceGuess"></label>
+                <input asp-for="Car.PriceGuess" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Guess" class="btn btn-warning" />
+        <a class="btn btn-default" href="/CarList">Cancel</a>
+    </form>
+</div>

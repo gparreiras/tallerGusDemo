@@ -1,0 +1,67 @@
+﻿@page
+@using tallerGusDemo.Models
+@model CarListModel
+
+<h2>All Car List</h2>
+
+<div style="margin-top: 33px;">
+    <p>
+        <a asp-page="Car" class="btn btn-info">+ Create New Car</a>
+    </p>
+    <table class="table" style="margin-top: 21px;">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Make")
+                </th>
+                <th>
+                    @Html.DisplayName("Model")
+                </th>
+                <th>
+                    @Html.DisplayName("Year")
+                </th>
+                <th>
+                    @Html.DisplayName("Doors")
+                </th>
+                <th>
+                    @Html.DisplayName("Color")
+                </th>
+                <th>
+                    @Html.DisplayName("Price")
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CarList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Make)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doors)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Color)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Price)*@
+                        ** TOP SECRET **
+                    </td>
+                    <td>
+                        <a asp-page="./EditCar" asp-route-id="@item.CarID">Edit</a>&nbsp;&nbsp;||&nbsp;&nbsp;
+                        <a asp-page="./CarList" onclick="return confirm('Are you sure you want to delete this?');" asp-page-handler="Delete" asp-route-id="@item.CarID">Delete</a>&nbsp;&nbsp;||&nbsp;&nbsp;
+                        <a asp-page="./CarPriceGuess" asp-route-id="@item.CarID">Guess Price</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
